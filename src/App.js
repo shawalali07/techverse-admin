@@ -10,10 +10,10 @@ function App() {
     <div className='App'>
       <Header />
       <div className='containerr'>
-        <Sidebar />
+        {true && <Sidebar />}
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/admin-dashboard' element={<Home />} />
+          <Route path='/' element={<Login />} />
         </Routes>
       </div>
     </div>
