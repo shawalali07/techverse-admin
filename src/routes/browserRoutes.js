@@ -1,3 +1,4 @@
 export const browserRoutes = {
-  HOME: '/',
+  LOGIN: '/',
+  ADMIN_DASHBOARD: '/admin-dashboard',
 };

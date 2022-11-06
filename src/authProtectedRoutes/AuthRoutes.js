@@ -1,11 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useToken } from '../hooks/register/useToken';
 import isEmpty from '../utils/isEmpty';
 
-const authRoutes = ({ children, redirectLink }) => {
+const AuthRoutes = ({ children, redirectLink }) => {
   const location = useLocation();
-  const token = useToken();
+  const token = useSelector((state) => state.authSlice?.user?.token);
+  console.log(token);
   if (!isEmpty(token)) {
     return (
       <Navigate
@@ -17,4 +18,4 @@ const authRoutes = ({ children, redirectLink }) => {
   return children;
 };
 
-export default authRoutes;
+export default AuthRoutes;

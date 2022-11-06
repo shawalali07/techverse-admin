@@ -1,16 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { useToken } from '../hooks/register/useToken';
 import { browserRoutes } from '../routes/browserRoutes';
 import isEmpty from '../utils/isEmpty';
 
-const protectedRoutes = ({ children, redirectLink, pathName }) => {
-  const token = useToken();
+const ProtectedRoutes = ({ children, redirectLink, pathName }) => {
+  const token = useSelector((state) => state.authSlice?.user?.token);
+
   if (isEmpty(token)) {
     return (
       <Navigate
         state={{ pathName: pathName ? pathName : '' }}
-        to={redirectLink ? redirectLink : browserRoutes.SIGNIN}
+        to={redirectLink ? redirectLink : browserRoutes.LOGIN}
         replace
       />
     );
@@ -18,4 +19,4 @@ const protectedRoutes = ({ children, redirectLink, pathName }) => {
   return children;
 };
 
-export default protectedRoutes;
+export default ProtectedRoutes;

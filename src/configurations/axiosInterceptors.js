@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL } from './config';
-import { store } from '../redux-toolkit';
+import { store } from '../reduxToolkit/store';
 
 const authApi = axios.create({
   baseURL: BASE_URL,

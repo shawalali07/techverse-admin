@@ -12,6 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAdmin } from '../../reduxToolkit/actions/auth/login';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -22,8 +26,8 @@ function Copyright(props) {
       {...props}
     >
       {'Copyright © '}
-      <Link color='inherit' href='https://mui.com/'>
-        Your Website
+      <Link color='inherit' href='https://techverse-admin.netlify.app/'>
+        Techverse
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -34,14 +38,24 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => console.log(state));
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const onChange = ({ target: { name, value } }) => {
+    setFormData({ ...formData, [name]: value });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    dispatch(loginAdmin(formData, navigate));
   };
+
+  console.log(formData);
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,6 +82,7 @@ export default function Login() {
             sx={{ mt: 1 }}
           >
             <TextField
+              onChange={onChange}
               margin='normal'
               required
               fullWidth
@@ -78,6 +93,7 @@ export default function Login() {
               autoFocus
             />
             <TextField
+              onChange={onChange}
               margin='normal'
               required
               fullWidth
@@ -99,18 +115,6 @@ export default function Login() {
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href='#' variant='body2'>
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href='#' variant='body2'>
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />

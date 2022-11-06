@@ -14,8 +14,17 @@ import {
   Report,
 } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import { DataObjectOutlined, Logout } from '@mui/icons-material';
+import { useDispatch } from 'react-redux';
+import { destroyToken } from '../../reduxToolkit/slices/authSlice';
 
 export default function Sidebar() {
+  const dispatch = useDispatch();
+  const logout = () => {
+    console.log('hhhhhhhhhhh');
+    dispatch(destroyToken());
+  };
+
   return (
     <div className='sidebar'>
       <div className='sidebarWrapper'>
@@ -29,12 +38,16 @@ export default function Sidebar() {
               </li>
             </Link>
             <li className='sidebarListItem'>
-              <LanguageOutlined className='sidebarIcon' />
+              <DataObjectOutlined className='sidebarIcon' />
               Add Languages
             </li>
             <li className='sidebarListItem'>
               <CodeOutlined className='sidebarIcon' />
               Add Skills
+            </li>
+            <li onClick={logout} className='sidebarListItem'>
+              <Logout className='sidebarIcon' />
+              Logout
             </li>
           </ul>
         </div>

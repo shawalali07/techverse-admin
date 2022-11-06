@@ -1,3 +1,3 @@
 export const authRoutes = {
-  SIGNUP: `/users`,
+  LOGIN: `/users/login`,
 };
