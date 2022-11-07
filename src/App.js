@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux';
 import { browserRoutes } from './routes/browserRoutes';
 import AuthRoutes from './authProtectedRoutes/AuthRoutes';
 import ProtectedRoutes from './authProtectedRoutes/ProtectedRoutes';
+import Languages from './components/languages/Languages';
+import Skills from './components/skills/Skills';
 function App() {
   const token = useSelector((state) => state.authSlice?.user?.token);
   return (
@@ -21,6 +23,22 @@ function App() {
             element={
               <ProtectedRoutes redirectLink={browserRoutes.LOGIN}>
                 <Home />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path={browserRoutes.LANGUAGES}
+            element={
+              <ProtectedRoutes redirectLink={browserRoutes.LOGIN}>
+                <Languages />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path={browserRoutes.SKILLS}
+            element={
+              <ProtectedRoutes redirectLink={browserRoutes.LOGIN}>
+                <Skills />
               </ProtectedRoutes>
             }
           />
