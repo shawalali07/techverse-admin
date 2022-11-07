@@ -1,0 +1,35 @@
+.languages {
+  flex: 6;
+}
+
+.languageWrapper {
+  padding: 25px 0px 0px 30px;
+}
+
+.languageWrapper > h1 {
+  font-size: 26px;
+}
+
+.languageWrapper > input {
+  margin-top: 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.languageWrapper > input:focus {
+  outline: none;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.languageList {
+  font-weight: 420;
+  padding-left: 10px;
+}
+.languageOl {
+  font-size: 24px;
+}

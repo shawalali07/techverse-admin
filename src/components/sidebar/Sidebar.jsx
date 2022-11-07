@@ -1,27 +1,14 @@
 import './sidebar.css';
-import {
-  LineStyle,
-  LanguageOutlined,
-  CodeOutlined,
-  PermIdentity,
-  Storefront,
-  AttachMoney,
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
-  WorkOutline,
-  Report,
-} from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { LineStyle, CodeOutlined } from '@material-ui/icons';
+import { Link, NavLink } from 'react-router-dom';
 import { DataObjectOutlined, Logout } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { destroyToken } from '../../reduxToolkit/slices/authSlice';
+import { browserRoutes } from '../../routes/browserRoutes';
 
 export default function Sidebar() {
   const dispatch = useDispatch();
   const logout = () => {
-    console.log('hhhhhhhhhhh');
     dispatch(destroyToken());
   };
 
@@ -31,85 +18,30 @@ export default function Sidebar() {
         <div className='sidebarMenu'>
           <h3 className='sidebarTitle'>Dashboard</h3>
           <ul className='sidebarList'>
-            <Link to='/' className='link'>
-              <li className='sidebarListItem active'>
+            <NavLink to={browserRoutes.ADMIN_DASHBOARD} className='link'>
+              <li className='sidebarListItem'>
                 <LineStyle className='sidebarIcon' />
                 Home
               </li>
-            </Link>
-            <li className='sidebarListItem'>
-              <DataObjectOutlined className='sidebarIcon' />
-              Add Languages
-            </li>
-            <li className='sidebarListItem'>
-              <CodeOutlined className='sidebarIcon' />
-              Add Skills
-            </li>
+            </NavLink>
+            <NavLink to={browserRoutes.LANGUAGES} className='link'>
+              <li className='sidebarListItem'>
+                <DataObjectOutlined className='sidebarIcon' />
+                Add Languages
+              </li>
+            </NavLink>
+            <NavLink to={browserRoutes.SKILLS} className='link'>
+              <li className='sidebarListItem'>
+                <CodeOutlined className='sidebarIcon' />
+                Add Skills
+              </li>
+            </NavLink>
             <li onClick={logout} className='sidebarListItem'>
               <Logout className='sidebarIcon' />
               Logout
             </li>
           </ul>
         </div>
-        {/* <div className='sidebarMenu'>
-          <h3 className='sidebarTitle'>Quick Menu</h3>
-          <ul className='sidebarList'>
-            <Link to='/users' className='link'>
-              <li className='sidebarListItem'>
-                <PermIdentity className='sidebarIcon' />
-                Users
-              </li>
-            </Link>
-            <Link to='/products' className='link'>
-              <li className='sidebarListItem'>
-                <Storefront className='sidebarIcon' />
-                Products
-              </li>
-            </Link>
-            <li className='sidebarListItem'>
-              <AttachMoney className='sidebarIcon' />
-              Transactions
-            </li>
-            <li className='sidebarListItem'>
-              <BarChart className='sidebarIcon' />
-              Reports
-            </li>
-          </ul>
-        </div>
-        <div className='sidebarMenu'>
-          <h3 className='sidebarTitle'>Notifications</h3>
-          <ul className='sidebarList'>
-            <li className='sidebarListItem'>
-              <MailOutline className='sidebarIcon' />
-              Mail
-            </li>
-            <li className='sidebarListItem'>
-              <DynamicFeed className='sidebarIcon' />
-              Feedback
-            </li>
-            <li className='sidebarListItem'>
-              <ChatBubbleOutline className='sidebarIcon' />
-              Messages
-            </li>
-          </ul>
-        </div>
-        <div className='sidebarMenu'>
-          <h3 className='sidebarTitle'>Staff</h3>
-          <ul className='sidebarList'>
-            <li className='sidebarListItem'>
-              <WorkOutline className='sidebarIcon' />
-              Manage
-            </li>
-            <li className='sidebarListItem'>
-              <Timeline className='sidebarIcon' />
-              Analytics
-            </li>
-            <li className='sidebarListItem'>
-              <Report className='sidebarIcon' />
-              Reports
-            </li>
-          </ul>
-        </div> */}
       </div>
     </div>
   );

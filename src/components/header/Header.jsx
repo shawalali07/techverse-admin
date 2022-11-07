@@ -1,8 +1,15 @@
 import React from 'react';
 import './header.css';
 import { NotificationsNone, Language, Settings } from '@material-ui/icons';
+import LanguageModal from '../languages/LanguageModal';
+import { useSelector } from 'react-redux';
+import SkillModal from '../skills/SkillModal';
 
 export default function Header() {
+  const showLanguageModal = useSelector(
+    (state) => state.modalSlice.languageModal
+  );
+  const showSkillModal = useSelector((state) => state.modalSlice.skillModal);
   return (
     <div className='topbar'>
       <div className='topbarWrapper'>
@@ -17,6 +24,8 @@ export default function Header() {
           />
         </div>
       </div>
+      <LanguageModal show={showLanguageModal} />
+      <SkillModal show={showSkillModal} />
     </div>
   );
 }
