@@ -49,6 +49,8 @@ export const userData = [
   },
 ];
 
+export const allTags = ['javascript', 'python', 'c++'];
+
 export const productData = [
   {
     name: 'Jan',

@@ -1,0 +1,43 @@
+.snippets {
+  margin: 20px;
+  flex: 6;
+}
+
+.snippetTable {
+  margin-top: 20px;
+}
+
+.snippetAdd > input {
+  padding: 5px;
+}
+
+.snippetAdd > input:focus {
+  outline: none;
+}
+
+.snippetAddTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortTitle {
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 20vw;
+  margin-left: 10px;
+}
+
+.shortDesc {
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 30vw;
+  margin-left: 10px;
+}
+
+.snippetAddTitle > input:focus {
+  outline: none;
+}
+
+.snippetTag {
+  width: 20vw;
+}

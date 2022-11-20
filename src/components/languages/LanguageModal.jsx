@@ -1,8 +1,10 @@
 import { Modal } from 'react-bootstrap';
 import { setLanguageModal } from '../../reduxToolkit/slices/modalSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import TagsData from './TagsData';
 
 const LanguageModal = ({ show }) => {
+  const tags = useSelector((state) => state?.languageSlice?.tags?.data);
   const dispatch = useDispatch();
 
   return (
@@ -17,7 +19,9 @@ const LanguageModal = ({ show }) => {
       </Modal.Header>
       <Modal.Body>
         <ol className='languageOl'>
-          <li className='languageList'>Javascript</li>
+          {tags?.map((tag) => (
+            <TagsData tag={tag} />
+          ))}
         </ol>
       </Modal.Body>
     </Modal>
