@@ -6,7 +6,6 @@ import isEmpty from '../utils/isEmpty';
 const AuthRoutes = ({ children, redirectLink }) => {
   const location = useLocation();
   const token = useSelector((state) => state.authSlice?.user?.token);
-  console.log(token);
   if (!isEmpty(token)) {
     return (
       <Navigate
