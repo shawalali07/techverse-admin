@@ -1,7 +1,7 @@
 import { Visibility } from '@material-ui/icons';
-
+import { Link } from 'react-router-dom';
+import { browserRoutes } from '../../routes/browserRoutes';
 const UsersList = ({ user }) => {
-  console.log(user);
   return (
     <li className='widgetSmListItem'>
       {user?.image ? (
@@ -15,7 +15,13 @@ const UsersList = ({ user }) => {
       </div>
       <button className='widgetSmButton'>
         <Visibility className='widgetSmIcon' />
-        View Profile
+        <Link
+          style={{ textDecoration: 'none', color: 'inherit' }}
+          state={{ data: user }}
+          to={browserRoutes.USERS + '/' + user?._id}
+        >
+          View Profile
+        </Link>
       </button>
     </li>
   );

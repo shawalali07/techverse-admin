@@ -11,7 +11,6 @@ const SnippetModal = ({ show }) => {
   let tags = useSelector((state) => state?.languageSlice?.tags?.data);
   let arrTags = [];
   arrTags = tags?.map((tag) => tag?.tag);
-  console.log(arrTags);
   const [loading, setLoading] = useState(false);
   const [tag, setTag] = useState('');
   const [formData, setFormData] = useState({

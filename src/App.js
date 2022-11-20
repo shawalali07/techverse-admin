@@ -12,6 +12,7 @@ import Languages from './components/languages/Languages';
 import Skills from './components/skills/Skills';
 import Snippets from './components/snippets/Snippets';
 import { Toaster } from 'react-hot-toast';
+import User from './components/user/User';
 function App() {
   const token = useSelector((state) => state.authSlice?.user?.token);
   return (
@@ -51,6 +52,14 @@ function App() {
             element={
               <ProtectedRoutes redirectLink={browserRoutes.LOGIN}>
                 <Skills />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path={browserRoutes.USERS + '/:id'}
+            element={
+              <ProtectedRoutes redirectLink={browserRoutes.LOGIN}>
+                <User />
               </ProtectedRoutes>
             }
           />

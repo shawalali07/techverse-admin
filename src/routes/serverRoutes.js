@@ -4,4 +4,6 @@ export const authRoutes = {
   SKILL: '/skill',
   SNIPPET: '/snippets',
   KNOWLEDGE: '/knowledge',
+  USERS: '/users',
+  ANSWERS: '/answers',
 };
