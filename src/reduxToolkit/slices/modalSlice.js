@@ -5,6 +5,8 @@ export const modalSlice = createSlice({
   initialState: {
     languageModal: false,
     skillModal: false,
+    snippetModal: false,
+    snippetViewModal: false,
   },
   reducers: {
     setLanguageModal: (state, action) => {
@@ -13,9 +15,20 @@ export const modalSlice = createSlice({
     setSkillModal: (state, action) => {
       state.skillModal = action.payload;
     },
+    setSnippetModal: (state, action) => {
+      state.snippetModal = action.payload;
+    },
+    setSnippetViewModal: (state, action) => {
+      state.snippetViewModal = action.payload;
+    },
   },
 });
 
-export const { setLanguageModal, setSkillModal } = modalSlice.actions;
+export const {
+  setLanguageModal,
+  setSkillModal,
+  setSnippetModal,
+  setSnippetViewModal,
+} = modalSlice.actions;
 
 export default modalSlice.reducer;

@@ -1,5 +1,7 @@
 export const authRoutes = {
-  LOGIN: '/users/login',
-  LANGUAGE: '/language',
+  LOGIN: '/admin/login',
+  LANGUAGE: '/admin/tag',
   SKILL: '/skill',
+  SNIPPET: '/snippets',
+  KNOWLEDGE: '/knowledge',
 };

@@ -18,6 +18,14 @@
   object-fit: cover;
 }
 
+.noImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: antiquewhite;
+}
+
 .widgetSmList {
   margin: 0;
   padding: 0;

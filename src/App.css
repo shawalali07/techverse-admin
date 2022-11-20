@@ -2,3 +2,31 @@
   display: flex;
   margin-top: 10px;
 }
+
+.demo-editor {
+  padding-left: 10px;
+  cursor: text;
+  min-height: 37vh;
+  max-height: 37vh;
+  border: 2px solid rgb(144, 144, 144);
+}
+
+.snipDel {
+}
+
+.snippetViewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.snippetTag {
+  font-weight: bold;
+  width: max-content;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  padding: 8px;
+  display: flex;
+  background-color: aliceblue;
+  margin-right: 80px;
+}

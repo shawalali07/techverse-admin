@@ -1,7 +1,12 @@
 import './sidebar.css';
 import { LineStyle, CodeOutlined } from '@material-ui/icons';
 import { Link, NavLink } from 'react-router-dom';
-import { DataObjectOutlined, Logout } from '@mui/icons-material';
+import {
+  DataObjectOutlined,
+  Logout,
+  TextSnippet,
+  TextSnippetOutlined,
+} from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { destroyToken } from '../../reduxToolkit/slices/authSlice';
 import { browserRoutes } from '../../routes/browserRoutes';
@@ -30,10 +35,11 @@ export default function Sidebar() {
                 Add Languages
               </li>
             </NavLink>
-            <NavLink to={browserRoutes.SKILLS} className='link'>
+
+            <NavLink to={browserRoutes.SNIPPET} className='link'>
               <li className='sidebarListItem'>
-                <CodeOutlined className='sidebarIcon' />
-                Add Skills
+                <TextSnippetOutlined className='sidebarIcon' />
+                Add Snippets
               </li>
             </NavLink>
             <li onClick={logout} className='sidebarListItem'>

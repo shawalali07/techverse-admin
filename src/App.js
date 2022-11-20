@@ -10,10 +10,14 @@ import AuthRoutes from './authProtectedRoutes/AuthRoutes';
 import ProtectedRoutes from './authProtectedRoutes/ProtectedRoutes';
 import Languages from './components/languages/Languages';
 import Skills from './components/skills/Skills';
+import Snippets from './components/snippets/Snippets';
+import { Toaster } from 'react-hot-toast';
 function App() {
   const token = useSelector((state) => state.authSlice?.user?.token);
   return (
     <div className='App'>
+      <Toaster position='bottom-center' />
+
       <Header />
       <div className='containerr'>
         {token && <Sidebar />}
@@ -31,6 +35,14 @@ function App() {
             element={
               <ProtectedRoutes redirectLink={browserRoutes.LOGIN}>
                 <Languages />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path={browserRoutes.SNIPPET}
+            element={
+              <ProtectedRoutes redirectLink={browserRoutes.LOGIN}>
+                <Snippets />
               </ProtectedRoutes>
             }
           />

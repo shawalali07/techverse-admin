@@ -29,7 +29,7 @@ authApi.interceptors.response.use(
 );
 
 api.interceptors.request.use((request) => {
-  const token = store.getState().authSlice.token;
+  const token = store.getState().authSlice?.user?.token;
   request.headers.Authorization = token ? `Bearer ${token}` : '';
   return request;
 });

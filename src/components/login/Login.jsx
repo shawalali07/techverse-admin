@@ -38,9 +38,9 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector((state) => console.log(state));
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -52,10 +52,8 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(loginAdmin(formData, navigate));
+    dispatch(loginAdmin(formData, navigate, setLoading));
   };
-
-  console.log(formData);
 
   return (
     <ThemeProvider theme={theme}>
@@ -108,6 +106,7 @@ export default function Login() {
               label='Remember me'
             />
             <Button
+              disabled={loading}
               type='submit'
               fullWidth
               variant='contained'
