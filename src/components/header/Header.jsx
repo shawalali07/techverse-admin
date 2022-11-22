@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import SkillModal from '../skills/SkillModal';
 import SnippetModal from '../snippets/SnippetModal';
 import SnippetViewModal from '../snippets/SnippetViewModal';
+import logo from '../../assets/images/logo.png';
 
 export default function Header() {
   const showLanguageModal = useSelector(
@@ -19,15 +20,15 @@ export default function Header() {
     <div className='topbar'>
       <div className='topbarWrapper'>
         <div className='topLeft'>
-          <span className='logo'>Techverse</span>
+          <img className='techverseLogo' src={logo} />
         </div>
-        <div className='topRight'>
+        {/* <div className='topRight'>
           <img
             src='http://res.cloudinary.com/dp0vz4npm/image/upload/v1667142933/srizvpmdj230zpwzcvao.jpg'
             alt=''
             className='topAvatar'
           />
-        </div>
+        </div> */}
       </div>
       <LanguageModal show={showLanguageModal} />
       <SkillModal show={showSkillModal} />
