@@ -30,3 +30,7 @@
   background-color: aliceblue;
   margin-right: 80px;
 }
+
+.tagModal {
+  text-transform: capitalize;
+}

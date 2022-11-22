@@ -21,10 +21,17 @@ const Languages = () => {
     <div className='languages'>
       <div className='languageWrapper'>
         <h1>Add Language</h1>
-        <input onChange={(e) => setLanguage(e.target.value)} type='text' />
+        <input
+          placeholder='Add Language'
+          value={language}
+          onChange={(e) => setLanguage(e.target.value.toLowerCase())}
+          type='text'
+        />
         <div className='buttonWrapper'>
           <Button
-            onClick={() => dispatch(addLanguage(language, setLoading))}
+            onClick={() =>
+              dispatch(addLanguage(language, setLoading, setLanguage))
+            }
             disabled={!language || loading}
             sx={{ marginTop: 2 }}
             variant='contained'

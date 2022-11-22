@@ -3,20 +3,21 @@ import { api } from '../../../configurations/axiosInterceptors';
 import { authRoutes } from '../../../routes/serverRoutes';
 import { setTags } from '../../slices/languageSlice';
 
-export const addLanguage = (language, setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const { data } = await api.post(authRoutes.LANGUAGE, { tag: language });
-    toast.success('Tag Successfully added');
-    setLoading(false);
+export const addLanguage =
+  (language, setLoading, setLanguage) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const { data } = await api.post(authRoutes.LANGUAGE, { tag: language });
+      toast.success('Tag Successfully added');
+      setLoading(false);
+      setLanguage('');
+      dispatch(getLanguages());
+    } catch (error) {
+      setLoading(false);
 
-    dispatch(getLanguages());
-  } catch (error) {
-    setLoading(false);
-
-    console.log(error.response);
-  }
-};
+      console.log(error.response);
+    }
+  };
 
 export const deleteLanguage = (id, setLoading) => async (dispatch) => {
   setLoading(true);

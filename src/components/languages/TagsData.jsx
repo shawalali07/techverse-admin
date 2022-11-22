@@ -10,7 +10,7 @@ const TagsData = ({ tag }) => {
   };
   return (
     <div className='tagsData d-flex justify-content-between align-items-center'>
-      <li className=''>{tag.tag}</li>
+      <li className='tagModal'>{tag.tag}</li>
       <Button
         disabled={loading}
         onClick={() => handleDelete(tag?._id)}
