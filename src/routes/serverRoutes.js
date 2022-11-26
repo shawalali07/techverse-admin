@@ -5,5 +5,6 @@ export const authRoutes = {
   SNIPPET: '/snippets',
   KNOWLEDGE: '/knowledge',
   USERS: '/users',
+  USERS_CHART: '/users/count',
   ANSWERS: '/answers',
 };

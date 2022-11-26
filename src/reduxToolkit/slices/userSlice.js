@@ -6,6 +6,7 @@ export const userSlice = createSlice({
     users: [],
     knowledge: [],
     answers: [],
+    usersChart: [],
   },
   reducers: {
     setUsers: (state, action) => {
@@ -17,9 +18,13 @@ export const userSlice = createSlice({
     setAnswers: (state, action) => {
       state.answers = action.payload;
     },
+    setUsersChart: (state, action) => {
+      state.usersChart = action.payload;
+    },
   },
 });
 
-export const { setUsers, setKnowledge, setAnswers } = userSlice.actions;
+export const { setUsers, setKnowledge, setAnswers, setUsersChart } =
+  userSlice.actions;
 
 export default userSlice.reducer;

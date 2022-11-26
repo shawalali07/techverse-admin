@@ -8,11 +8,13 @@ import {
   getAnswers,
   getKnowledge,
   getUsers,
+  getUsersChart,
 } from '../../reduxToolkit/actions/user/user';
 import { useEffect } from 'react';
-
+import moment from 'moment';
 export default function Home() {
   const users = useSelector((state) => state?.userSlice?.users);
+  let usersChart = useSelector((state) => state?.userSlice?.usersChart?.data);
   const knowledge = useSelector((state) => state?.userSlice?.knowledge);
   const answers = useSelector((state) => state?.userSlice?.answers);
   const dispatch = useDispatch();
@@ -20,12 +22,13 @@ export default function Home() {
     dispatch(getUsers());
     dispatch(getKnowledge());
     dispatch(getAnswers());
+    dispatch(getUsersChart());
   }, []);
 
   return (
     <div className='home'>
-      <FeaturedInfo answers={answers} knowledge={knowledge} users={users} />
-      <Chart data={userData} title='User Analytics' grid dataKey='Users' />
+      <FeaturedInfo answers={usersChart} knowledge={knowledge} users={users} />
+      <Chart data={usersChart} title='User Analytics' grid dataKey='Count' />
       <div className='homeWidgets'>
         <WidgetSm users={users} />
       </div>
