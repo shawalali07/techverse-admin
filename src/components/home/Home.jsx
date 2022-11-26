@@ -25,6 +25,8 @@ export default function Home() {
     dispatch(getUsersChart());
   }, []);
 
+  console.log(usersChart);
+
   return (
     <div className='home'>
       <FeaturedInfo answers={usersChart} knowledge={knowledge} users={users} />
