@@ -14,8 +14,7 @@ export const addLanguage =
       dispatch(getLanguages());
     } catch (error) {
       setLoading(false);
-
-      console.log(error.response);
+      toast.error(error?.response?.data?.message);
     }
   };
 
