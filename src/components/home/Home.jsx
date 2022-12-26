@@ -25,11 +25,9 @@ export default function Home() {
     dispatch(getUsersChart());
   }, []);
 
-  console.log(usersChart);
-
   return (
     <div className='home'>
-      <FeaturedInfo answers={usersChart} knowledge={knowledge} users={users} />
+      <FeaturedInfo answers={answers} knowledge={knowledge} users={users} />
       <Chart data={usersChart} title='User Analytics' grid dataKey='Count' />
       <div className='homeWidgets'>
         <WidgetSm users={users} />
