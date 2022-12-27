@@ -48,12 +48,12 @@ export default function SnippetTable() {
       width: 150,
       renderCell: (params) => {
         return (
-          <>
+          <div className='btnSnippets'>
             <button
               onClick={() => {
                 dispatch(setSnippetViewModal(true));
               }}
-              className='userListEdit'
+              className='userListEditBtn'
             >
               View
             </button>
@@ -62,7 +62,7 @@ export default function SnippetTable() {
               onClick={() => handleDelete(params.row.id)}
             />
             <SnippetViewModal snippet={params.row} />
-          </>
+          </div>
         );
       },
     },

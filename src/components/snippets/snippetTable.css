@@ -15,18 +15,24 @@
   margin-right: 10px;
 }
 
-.userListEdit {
-  width: 50px;
-  margin-top: 7px;
+.userListEditBtn {
+  text-align: center !important;
+  height: 10px;
+  width: 40px;
+  padding-bottom: 55px;
   border-radius: 10px;
   border: none;
   background-color: #3bb077;
   color: white;
-  cursor: pointer;
   margin-right: 20px;
 }
 
 .userListDelete {
   color: red;
   cursor: pointer;
+}
+
+.btnSnippets {
+  display: flex;
+  align-items: center;
 }
