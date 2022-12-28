@@ -6,7 +6,7 @@ export default function WidgetSm({ users }) {
     <div className='widgetSm'>
       <span className='widgetSmTitle'>New Join Members</span>
       <ul className='widgetSmList'>
-        {users?.map((user) => (
+        {users?.slice(0, 5)?.map((user) => (
           <UsersList user={user} />
         ))}
       </ul>

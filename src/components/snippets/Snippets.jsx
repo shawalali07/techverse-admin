@@ -19,6 +19,11 @@ const Snippets = () => {
   return (
     <div className='snippets'>
       <Button
+        style={{
+          backgroundColor: '#1976d2',
+          padding: '10px',
+          borderRadius: '5px',
+        }}
         onClick={() => dispatch(setSnippetModal(true))}
         variant='contained'
       >
